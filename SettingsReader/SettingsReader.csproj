@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings\AppSettingsReader.cs" />
     <Compile Include="ISettingsReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Section\ConfigurationSectionHandler.cs" />

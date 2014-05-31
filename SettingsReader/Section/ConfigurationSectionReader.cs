@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Globalization;
 
 using Newtonsoft.Json;
@@ -11,9 +12,17 @@ namespace SettingsReader.Section
 	{
 		#region Implementation of ISettingsReader
 
+		public T Read<T>()
+		{
+			return Read<T>(CultureInfo.InvariantCulture.TextInfo.ToTitleCase(typeof(T).Name));
+		}
+
 		T ISettingsReader.Read<T>(string source)
 		{
-			source = source ?? CultureInfo.InvariantCulture.TextInfo.ToTitleCase(typeof(T).Name);
+			if (source == null)
+			{
+				throw new ArgumentNullException("source", "Source can't be null");
+			}
 
 			var section = ConfigurationManager.GetSection(source);
 			if (!(section is ConfigurationSectionHandler))
@@ -36,7 +45,7 @@ namespace SettingsReader.Section
 
 		#endregion
 
-		public static T Read<T>(string sectionName)
+		public static T Read<T>(string sectionName = null)
 		{
 			var reader = (ISettingsReader)new ConfigurationSectionReader();
 
