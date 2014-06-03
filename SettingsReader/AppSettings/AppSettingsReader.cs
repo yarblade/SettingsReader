@@ -1,5 +1,4 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Text;
 
 using Newtonsoft.Json;
@@ -10,25 +9,26 @@ namespace SettingsReader.AppSettings
 {
 	public class AppSettingsReader : ISettingsReader
 	{
+		public AppSettingsReader()
+		{
+		}
+
+		public AppSettingsReader(string prefix)
+		{
+			_prefix = prefix;
+		}
+
 		#region Implementation of ISettingsReader
 
 		public T Read<T>()
 		{
-			return Read<T>(typeof(T).Name);
-		}
-
-		T ISettingsReader.Read<T>(string source)
-		{
-			if (source == null)
-			{
-				throw new ArgumentNullException("source", "Source can't be null");
-			}
+			_prefix = _prefix ?? typeof(T).Name;
 
 			var sb = new StringBuilder("{");
 
 			foreach (var property in typeof(T).GetProperties())
 			{
-				var name = source != string.Empty ? source + "." + property.Name : property.Name;
+				var name = _prefix != string.Empty ? _prefix + "." + property.Name : property.Name;
 				var value = ConfigurationManager.AppSettings[name];
 				if (value == null)
 				{
@@ -45,10 +45,12 @@ namespace SettingsReader.AppSettings
 
 		#endregion
 
-		public static T Read<T>(string source = null)
+		public static T Read<T>(string prefix = null)
 		{
-			var reader = (ISettingsReader)new AppSettingsReader();
-			return reader.Read<T>(source);
+			var reader = new AppSettingsReader(prefix);
+			return reader.Read<T>();
 		}
+
+		private string _prefix;
 	}
 }
