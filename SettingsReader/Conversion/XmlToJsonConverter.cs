@@ -12,7 +12,7 @@ namespace SettingsReader.Conversion
 
 		public string Convert(XElement data)
 		{
-			return JsonConvert.SerializeXNode(data);
+			return JsonConvert.SerializeXNode(data, Formatting.Indented);
 		}
 
 		#endregion

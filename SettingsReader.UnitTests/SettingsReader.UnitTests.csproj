@@ -41,7 +41,18 @@
     <AssemblyOriginatorKeyFile>..\..\yarblade.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture">
+      <HintPath>..\packages\AutoFixture.3.2.1\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -56,16 +67,24 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AppSettings\AppSettingsReaderTests.cs" />
+    <Compile Include="Conversion\CamelCaseTypeNameConverterTests.cs" />
+    <Compile Include="Conversion\DictionaryToJsonConverterTests.cs" />
+    <Compile Include="Conversion\TypeNameConverterTests.cs" />
+    <Compile Include="Conversion\XmlConverterTests.cs" />
+    <Compile Include="Readers\AppSettingsReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\yarblade.snk">
       <Link>yarblade.snk</Link>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Section\" />
+    <ProjectReference Include="..\SettingsReader\SettingsReader.csproj">
+      <Project>{54fd7e28-8211-4138-a143-88a1d115ecc3}</Project>
+      <Name>SettingsReader</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

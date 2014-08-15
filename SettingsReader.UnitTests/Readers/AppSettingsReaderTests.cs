@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 
-namespace SettingsReader.UnitTests.AppSettings
+namespace SettingsReader.UnitTests.Readers
 {
 	[TestClass]
 	[ExcludeFromCodeCoverage]
