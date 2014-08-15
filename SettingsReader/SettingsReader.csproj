@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Readers\AppSettingsReader.cs" />
-    <Compile Include="BaseSettingsReader.cs" />
+    <Compile Include="Readers\BaseSettingsReader.cs" />
     <Compile Include="Conversion\CamelCaseTypeNameConverter.cs" />
     <Compile Include="Conversion\DictionaryToJsonConverter.cs" />
     <Compile Include="Conversion\IJsonConverter.cs" />

@@ -4,7 +4,7 @@ using SettingsReader.Sources;
 
 
 
-namespace SettingsReader
+namespace SettingsReader.Readers
 {
 	public abstract class BaseSettingsReader<TSource> : ISettingsReader
 	{
@@ -16,8 +16,8 @@ namespace SettingsReader
 		{
 			_typeNameConverter = typeNameConverter;
 			_source = source;
-			_serializer = serializer;
 			_converter = converter;
+			_serializer = serializer;
 		}
 
 		#region Implementation of ISettingsReader

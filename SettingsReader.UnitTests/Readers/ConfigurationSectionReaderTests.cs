@@ -13,12 +13,12 @@ namespace SettingsReader.UnitTests.Readers
 {
 	[TestClass]
 	[ExcludeFromCodeCoverage]
-	public class AppSettingsReaderTests
+	public class ConfigurationSectionReaderTests
 	{
 		[TestInitialize]
 		public void TestInit()
 		{
-			_reader = new AppSettingsReader();
+			_reader = new ConfigurationSectionReader();
 		}
 
 		[TestMethod]
@@ -26,21 +26,21 @@ namespace SettingsReader.UnitTests.Readers
 		{
 			var actual = TestHelper.GetFieldValue(_reader, "_typeNameConverter");
 			Assert.IsNotNull(actual, "Field can't be null.");
-			Assert.AreEqual(typeof(TypeNameConverter), actual.GetType(), "Wrong field name.");
+			Assert.AreEqual(typeof(CamelCaseTypeNameConverter), actual.GetType(), "Wrong field name.");
 
 			actual = TestHelper.GetFieldValue(_reader, "_source");
 			Assert.IsNotNull(actual, "Field can't be null.");
-			Assert.AreEqual(typeof(AppSettingsSource), actual.GetType(), "Wrong field name.");
+			Assert.AreEqual(typeof(ConfigurationSectionSettingsSource), actual.GetType(), "Wrong field name.");
 
 			actual = TestHelper.GetFieldValue(_reader, "_converter");
 			Assert.IsNotNull(actual, "Field can't be null.");
-			Assert.AreEqual(typeof(DictionaryToJsonConverter), actual.GetType(), "Wrong field name.");
+			Assert.AreEqual(typeof(XmlConverter), actual.GetType(), "Wrong field name.");
 
 			actual = TestHelper.GetFieldValue(_reader, "_serializer");
 			Assert.IsNotNull(actual, "Field can't be null.");
 			Assert.AreEqual(typeof(JsonSerializer), actual.GetType(), "Wrong field name.");
 		}
 
-		private AppSettingsReader _reader;
+		private ConfigurationSectionReader _reader;
 	}
 }
