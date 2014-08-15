@@ -33,7 +33,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>yarblade.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\yarblade.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -49,15 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSettings\AppSettingsReader.cs" />
+    <Compile Include="Readers\AppSettingsReader.cs" />
+    <Compile Include="BaseSettingsReader.cs" />
+    <Compile Include="Conversion\CamelCaseTypeNameConverter.cs" />
+    <Compile Include="Conversion\DictionaryToJsonConverter.cs" />
+    <Compile Include="Conversion\IJsonConverter.cs" />
+    <Compile Include="Conversion\TypeNameConverter.cs" />
+    <Compile Include="Conversion\XmlToJsonConverter.cs" />
     <Compile Include="ISettingsReader.cs" />
+    <Compile Include="Conversion\ITypeNameConverter.cs" />
+    <Compile Include="Sources\ISettingsSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Section\ConfigurationSectionHandler.cs" />
-    <Compile Include="Section\ConfigurationSectionReader.cs" />
+    <Compile Include="Configuration\SampleSection.cs" />
+    <Compile Include="Readers\ConfigurationSectionReader.cs" />
+    <Compile Include="Serialization\IJsonSerializer.cs" />
+    <Compile Include="Serialization\JsonSerializer.cs" />
+    <Compile Include="Sources\AppSettingsSource.cs" />
+    <Compile Include="Sources\ConfigurationSectionSettingsSource.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\yarblade.snk">
+      <Link>yarblade.snk</Link>
+    </None>
     <None Include="packages.config" />
-    <None Include="yarblade.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
