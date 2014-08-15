@@ -54,6 +54,7 @@
       <HintPath>..\packages\AutoFixture.3.2.1\lib\net40\Ploeh.AutoFixture.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -81,6 +82,8 @@
     <Compile Include="Readers\BaseSettingsReaderTests.cs" />
     <Compile Include="Readers\ConfigurationSectionReaderTests.cs" />
     <Compile Include="Readers\SampleSettingsReader.cs" />
+    <Compile Include="Sources\AppSettingsSourceTests.cs" />
+    <Compile Include="Sources\ConfigurationSectionSettingsSourceTests.cs" />
     <Compile Include="TestHelper.cs" />
   </ItemGroup>
   <ItemGroup>
