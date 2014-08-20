@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace SettingsReader.Sources
 {
-	internal class ConfigurationSectionSettingsSource : ISettingsSource<XElement>
+	internal class ConfigurationSectionSource : ISettingsSource<XElement>
 	{
 		#region Implementation of ISettingsSource<XElement>
 
@@ -23,17 +23,17 @@ namespace SettingsReader.Sources
 				throw new ConfigurationErrorsException(string.Format("Could not find configuration section '{0}'.", sourceName));
 			}
 
-			var handler = section as ConfigurationSection;
+			var handler = section as Configuration.ConfigurationSection;
 			if (handler != null)
 			{
-				return XElement.Load(handler.SectionInformation.GetRawXml());
+				return handler.Element;
 			}
 
 			throw new ConfigurationErrorsException(
 				string.Format(
 					"The configuration section '{0}' must have a section handler of type '{1}'.",
 					sourceName,
-					typeof(ConfigurationSection).FullName));
+					typeof(Configuration.ConfigurationSection).FullName));
 		}
 
 		#endregion

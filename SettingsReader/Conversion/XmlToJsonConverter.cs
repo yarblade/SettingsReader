@@ -1,6 +1,7 @@
 ﻿using System.Xml.Linq;
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 
 
@@ -12,7 +13,7 @@ namespace SettingsReader.Conversion
 
 		public string Convert(XElement data)
 		{
-			return JsonConvert.SerializeXNode(data, Formatting.Indented);
+			return JsonConvert.SerializeObject(data, Formatting.Indented, new XmlNodeConverter { OmitRootObject = true });
 		}
 
 		#endregion

@@ -40,7 +40,7 @@ namespace SettingsReader.UnitTests.BlackBox.Readers
 			Assert.AreEqual(true, actual.Bool, "Wrong value.");
 			Assert.AreEqual('c', actual.Char, "Wrong value.");
 			Assert.AreEqual(1000000000000.0000000000001, actual.Double, "Wrong value.");
-			Assert.AreEqual(1000000000000.10000000000001000000000000m, actual.Decimal, "Wrong value.");
+			Assert.AreEqual(1000000000000.100000000000010000000000001m, actual.Decimal, "Wrong value.");
 
 			actual.ShouldBeEquivalentTo(_settingsReader.Read<SimplePlainSettings>("simple"), "Wrong settings.");
 		}

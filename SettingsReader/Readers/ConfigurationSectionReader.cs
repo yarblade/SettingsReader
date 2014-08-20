@@ -11,7 +11,7 @@ namespace SettingsReader.Readers
 	public class ConfigurationSectionReader : BaseSettingsReader<XElement>
 	{
 		public ConfigurationSectionReader()
-			: base(new CamelCaseTypeNameConverter(), new ConfigurationSectionSettingsSource(), new XmlConverter(), new JsonSerializer())
+			: base(new CamelCaseTypeNameConverter(), new ConfigurationSectionSource(), new XmlConverter(), new JsonSerializer())
 		{
 		}
 	}

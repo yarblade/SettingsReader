@@ -11,12 +11,12 @@ namespace SettingsReader.UnitTests.Sources
 {
 	[TestClass]
 	[ExcludeFromCodeCoverage]
-	public class ConfigurationSectionSettingsSourceTests
+	public class ConfigurationSectionSourceTests
 	{
 		[TestInitialize]
 		public void TestInit()
 		{
-			_settingsSource = new ConfigurationSectionSettingsSource();
+			_settingsSource = new ConfigurationSectionSource();
 		}
 
 		[TestMethod]
@@ -33,6 +33,6 @@ namespace SettingsReader.UnitTests.Sources
 			_settingsSource.Get(string.Empty);
 		}
 
-		private ConfigurationSectionSettingsSource _settingsSource;
+		private ConfigurationSectionSource _settingsSource;
 	}
 }

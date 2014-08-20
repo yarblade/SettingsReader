@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 using FluentAssertions;
@@ -39,9 +39,11 @@ namespace SettingsReader.UnitTests.BlackBox.Sources
 			Assert.AreEqual("True", actual["Bool"], "Wrong value.");
 			Assert.AreEqual("c", actual["Char"], "Wrong value.");
 			Assert.AreEqual("1000000000000.0000000000001", actual["Double"], "Wrong value.");
-			Assert.AreEqual("100000000000010000000000001000000000000100000000000010000000000001000000000000", actual["Decimal"], "Wrong value.");
+			Assert.AreEqual("1000000000000.100000000000010000000000001", actual["Decimal"], "Wrong value.");
 
 			actual.ShouldBeEquivalentTo(_settingsSource.Get("simple"), "Wrong settings.");
+
+			_settingsSource.Get("blablabla").ShouldBeEquivalentTo(new Dictionary<string, string>(), "Wrong settings.");
 		}
 
 		private AppSettingsSource _settingsSource;

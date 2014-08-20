@@ -30,28 +30,26 @@ namespace SettingsReader.UnitTests.Conversion
 			var xElement = CreateXElement();
 
 			var sb = new StringBuilder();
-			sb.AppendLine("{");
-			sb.AppendFormat("  \"{0}\": {{", xElement.Name);
-
+			sb.Append("{");
+			
 			foreach (var element in xElement.Elements())
 			{
 				sb.AppendLine();
-				sb.AppendFormat("    \"{0}\": {{", element.Name);
+				sb.AppendFormat("  \"{0}\": {{", element.Name);
 
 				foreach (var elem in element.Elements())
 				{
 					sb.AppendLine();
-					sb.AppendFormat("      \"{0}\": \"{1}\",", elem.Name, elem.Value);
+					sb.AppendFormat("    \"{0}\": \"{1}\",", elem.Name, elem.Value);
 				}
 				
 				sb.Remove(sb.Length - 1, 1);
 				sb.AppendLine();
-				sb.Append("    },");
+				sb.Append("  },");
 			}
 
 			sb.Remove(sb.Length - 1, 1);
 			sb.AppendLine();
-			sb.AppendLine("  }");
 			sb.Append("}");
 
 			var actual = _xmlConverter.Convert(xElement);

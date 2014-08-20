@@ -30,7 +30,7 @@ namespace SettingsReader.UnitTests.Readers
 
 			actual = TestHelper.GetFieldValue(_reader, "_source");
 			Assert.IsNotNull(actual, "Field can't be null.");
-			Assert.AreEqual(typeof(ConfigurationSectionSettingsSource), actual.GetType(), "Wrong field name.");
+			Assert.AreEqual(typeof(ConfigurationSectionSource), actual.GetType(), "Wrong field name.");
 
 			actual = TestHelper.GetFieldValue(_reader, "_converter");
 			Assert.IsNotNull(actual, "Field can't be null.");

@@ -83,7 +83,7 @@
     <Compile Include="Readers\ConfigurationSectionReaderTests.cs" />
     <Compile Include="Readers\SampleSettingsReader.cs" />
     <Compile Include="Sources\AppSettingsSourceTests.cs" />
-    <Compile Include="Sources\ConfigurationSectionSettingsSourceTests.cs" />
+    <Compile Include="Sources\ConfigurationSectionSourceTests.cs" />
     <Compile Include="TestHelper.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -62,10 +62,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Entities\ComplexSettings.cs" />
+    <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\SimplePlainSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readers\AppSettingsReaderTests.cs" />
+    <Compile Include="Readers\ConfigurationSectionReaderTests.cs" />
     <Compile Include="Sources\AppSettingsSourceTests.cs" />
+    <Compile Include="Sources\ConfigurationSectionSourceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\yarblade.snk">
