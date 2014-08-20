@@ -13,9 +13,8 @@ namespace SettingsReader.UnitTests.Readers
 		public SampleSettingsReader(
 			ITypeNameConverter typeNameConverter,
 			ISettingsSource<SampleSource> source,
-			IJsonConverter<SampleSource> converter,
-			IJsonSerializer serializer)
-			: base(typeNameConverter, source, converter, serializer)
+			IDeserializer<SampleSource> deserializer)
+			: base(typeNameConverter, source, deserializer)
 		{
 		}
 	}

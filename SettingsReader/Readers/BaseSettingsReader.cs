@@ -11,13 +11,11 @@ namespace SettingsReader.Readers
 		protected BaseSettingsReader(
 			ITypeNameConverter typeNameConverter,
 			ISettingsSource<TSource> source,
-			IJsonConverter<TSource> converter,
-			IJsonSerializer serializer)
+			IDeserializer<TSource> deserializer)
 		{
 			_typeNameConverter = typeNameConverter;
 			_source = source;
-			_converter = converter;
-			_serializer = serializer;
+			_deserializer = deserializer;
 		}
 
 		#region Implementation of ISettingsReader
@@ -31,15 +29,12 @@ namespace SettingsReader.Readers
 		{
 			var data = _source.Get(sourceName);
 
-			var json = _converter.Convert(data);
-
-			return _serializer.Deserialize<T>(json);
+			return _deserializer.Deserialize<T>(data);
 		}
 
 		#endregion
 
-		private readonly IJsonConverter<TSource> _converter;
-		private readonly IJsonSerializer _serializer;
+		private readonly IDeserializer<TSource> _deserializer;
 		private readonly ISettingsSource<TSource> _source;
 		private readonly ITypeNameConverter _typeNameConverter;
 	}

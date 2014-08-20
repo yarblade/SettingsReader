@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace SettingsReader.Sources
 {
-	internal class AppSettingsSource : ISettingsSource<IDictionary<string,string>>
+	internal class AppSettingsSource : ISettingsSource<IDictionary<string, string>>
 	{
-		private const string Delimiter = ".";
+		#region Implementation of ISettingsSource<IDictionary<string,string>>
 
 		public IDictionary<string, string> Get(string sourceName)
 		{
@@ -24,5 +24,9 @@ namespace SettingsReader.Sources
 				.Where(key => key.StartsWith(sourceName + Delimiter))
 				.ToDictionary(key => key.Substring(startIndex), key => ConfigurationManager.AppSettings[key]);
 		}
+
+		#endregion
+
+		private const string Delimiter = ".";
 	}
 }

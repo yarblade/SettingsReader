@@ -52,12 +52,11 @@
     <Compile Include="Readers\AppSettingsReader.cs" />
     <Compile Include="Readers\BaseSettingsReader.cs" />
     <Compile Include="Conversion\CamelCaseTypeNameConverter.cs" />
-    <Compile Include="Conversion\DictionaryToJsonConverter.cs" />
-    <Compile Include="Conversion\IJsonConverter.cs" />
     <Compile Include="Conversion\TypeNameConverter.cs" />
-    <Compile Include="Conversion\XmlToJsonConverter.cs" />
     <Compile Include="ISettingsReader.cs" />
     <Compile Include="Conversion\ITypeNameConverter.cs" />
+    <Compile Include="Serialization\Deserializer.cs" />
+    <Compile Include="Serialization\IDeserializer.cs" />
     <Compile Include="Sources\ISettingsSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configuration\ConfigurationSection.cs" />
