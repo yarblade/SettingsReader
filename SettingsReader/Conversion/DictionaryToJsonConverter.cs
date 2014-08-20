@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 
 
@@ -12,14 +13,7 @@ namespace SettingsReader.Conversion
 
 		public string Convert(IDictionary<string, string> data)
 		{
-			var jObject = new JObject();
-
-			foreach (var pair in data)
-			{
-				jObject.Add(pair.Key, new JValue(pair.Value));
-			}
-
-			return jObject.ToString();
+			return JsonConvert.SerializeObject(data, Formatting.Indented, new KeyValuePairConverter());
 		}
 
 		#endregion
