@@ -43,7 +43,7 @@ namespace SettingsReader.UnitTests.Readers
 
 			var jsonSerializer = TestHelper.GetFieldValue(deserializer, "_serializer");
 			Assert.IsNotNull(jsonSerializer, "Field can't be null.");
-			Assert.AreEqual(typeof(Serialization.JsonSerializer), jsonSerializer.GetType(), "Wrong field type.");
+			Assert.AreEqual(typeof(SettingsReader.Serialization.JsonSerializer), jsonSerializer.GetType(), "Wrong field type.");
 
 			actual = TestHelper.GetFieldValue(jsonSerializer, "_converters");
 			Assert.IsNotNull(actual, "Field can't be null.");
@@ -53,7 +53,7 @@ namespace SettingsReader.UnitTests.Readers
 
 			jsonSerializer = TestHelper.GetFieldValue(deserializer, "_deserializer");
 			Assert.IsNotNull(jsonSerializer, "Field can't be null.");
-			Assert.AreEqual(typeof(Serialization.JsonSerializer), jsonSerializer.GetType(), "Wrong field type.");
+			Assert.AreEqual(typeof(SettingsReader.Serialization.JsonSerializer), jsonSerializer.GetType(), "Wrong field type.");
 
 			actual = TestHelper.GetFieldValue(jsonSerializer, "_converters");
 			Assert.IsNotNull(actual, "Field can't be null.");

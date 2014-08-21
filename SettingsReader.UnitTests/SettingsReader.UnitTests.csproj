@@ -80,6 +80,8 @@
     <Compile Include="Readers\BaseSettingsReaderTests.cs" />
     <Compile Include="Readers\ConfigurationSectionReaderTests.cs" />
     <Compile Include="Readers\SampleSettingsReader.cs" />
+    <Compile Include="Serialization\Converters\BoolJsonConverterTests.cs" />
+    <Compile Include="Serialization\DeserializerTests.cs" />
     <Compile Include="Sources\AppSettingsSourceTests.cs" />
     <Compile Include="Sources\ConfigurationSectionSourceTests.cs" />
     <Compile Include="TestHelper.cs" />
