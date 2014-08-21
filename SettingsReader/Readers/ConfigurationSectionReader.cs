@@ -2,8 +2,9 @@
 
 using Newtonsoft.Json.Converters;
 
-using SettingsReader.Conversion;
+using SettingsReader.Converters;
 using SettingsReader.Serialization;
+using SettingsReader.Serialization.Converters;
 using SettingsReader.Sources;
 
 
@@ -17,8 +18,8 @@ namespace SettingsReader.Readers
 				new CamelCaseTypeNameConverter(),
 				new ConfigurationSectionSource(),
 				new Deserializer<XElement>(
-					new JsonSerializer(new XmlNodeConverter()),
-					new JsonSerializer()))
+					new JsonSerializer(new XmlNodeConverter { OmitRootObject = true }),
+					new JsonSerializer(new BoolJsonConverter())))
 		{
 		}
 	}

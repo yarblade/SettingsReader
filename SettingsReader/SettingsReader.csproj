@@ -51,10 +51,11 @@
   <ItemGroup>
     <Compile Include="Readers\AppSettingsReader.cs" />
     <Compile Include="Readers\BaseSettingsReader.cs" />
-    <Compile Include="Conversion\CamelCaseTypeNameConverter.cs" />
-    <Compile Include="Conversion\TypeNameConverter.cs" />
+    <Compile Include="Converters\CamelCaseTypeNameConverter.cs" />
+    <Compile Include="Converters\TypeNameConverter.cs" />
     <Compile Include="ISettingsReader.cs" />
-    <Compile Include="Conversion\ITypeNameConverter.cs" />
+    <Compile Include="Converters\ITypeNameConverter.cs" />
+    <Compile Include="Serialization\Converters\BoolJsonConverter.cs" />
     <Compile Include="Serialization\Deserializer.cs" />
     <Compile Include="Serialization\IDeserializer.cs" />
     <Compile Include="Sources\ISettingsSource.cs" />

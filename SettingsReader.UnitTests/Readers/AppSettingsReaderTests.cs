@@ -7,9 +7,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-using SettingsReader.Conversion;
+using SettingsReader.Converters;
 using SettingsReader.Readers;
 using SettingsReader.Serialization;
+using SettingsReader.Serialization.Converters;
 using SettingsReader.Sources;
 
 
@@ -58,7 +59,8 @@ namespace SettingsReader.UnitTests.Readers
 			actual = TestHelper.GetFieldValue(jsonSerializer, "_converters");
 			Assert.IsNotNull(actual, "Field can't be null.");
 			Assert.AreEqual(typeof(JsonConverter[]), actual.GetType(), "Wrong field type.");
-			Assert.AreEqual(0, ((JsonConverter[])actual).Length, "Wrong field length.");
+			Assert.AreEqual(1, ((JsonConverter[])actual).Length, "Wrong field length.");
+			Assert.AreEqual(typeof(BoolJsonConverter), ((JsonConverter[])actual)[0].GetType(), "Wrong field type.");
 		}
 
 		private AppSettingsReader _reader;

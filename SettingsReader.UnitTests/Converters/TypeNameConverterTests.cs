@@ -2,11 +2,11 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using SettingsReader.Conversion;
+using SettingsReader.Converters;
 
 
 
-namespace SettingsReader.UnitTests.Conversion
+namespace SettingsReader.UnitTests.Converters
 {
 	[TestClass]
 	[ExcludeFromCodeCoverage]

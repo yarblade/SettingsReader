@@ -8,7 +8,7 @@ using Moq;
 
 using Ploeh.AutoFixture;
 
-using SettingsReader.Conversion;
+using SettingsReader.Converters;
 using SettingsReader.Readers;
 using SettingsReader.Serialization;
 using SettingsReader.Sources;

@@ -1,4 +1,4 @@
-﻿using SettingsReader.Conversion;
+﻿using SettingsReader.Converters;
 using SettingsReader.Readers;
 using SettingsReader.Serialization;
 using SettingsReader.Sources;

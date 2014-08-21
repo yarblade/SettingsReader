@@ -2,7 +2,7 @@
 
 
 
-namespace SettingsReader.Conversion
+namespace SettingsReader.Converters
 {
 	internal class CamelCaseTypeNameConverter : ITypeNameConverter
 	{

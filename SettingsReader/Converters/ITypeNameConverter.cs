@@ -2,7 +2,7 @@
 
 
 
-namespace SettingsReader.Conversion
+namespace SettingsReader.Converters
 {
 	public interface ITypeNameConverter
 	{

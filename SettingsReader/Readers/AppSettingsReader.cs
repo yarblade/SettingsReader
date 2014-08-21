@@ -2,8 +2,9 @@
 
 using Newtonsoft.Json.Converters;
 
-using SettingsReader.Conversion;
+using SettingsReader.Converters;
 using SettingsReader.Serialization;
+using SettingsReader.Serialization.Converters;
 using SettingsReader.Sources;
 
 
@@ -18,7 +19,7 @@ namespace SettingsReader.Readers
 				new AppSettingsSource(),
 				new Deserializer<IDictionary<string, string>>(
 					new JsonSerializer(new KeyValuePairConverter()),
-					new JsonSerializer()))
+					new JsonSerializer(new BoolJsonConverter())))
 		{
 		}
 	}

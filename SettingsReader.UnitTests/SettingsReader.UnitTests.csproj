@@ -71,8 +71,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Conversion\CamelCaseTypeNameConverterTests.cs" />
-    <Compile Include="Conversion\TypeNameConverterTests.cs" />
+    <Compile Include="Converters\CamelCaseTypeNameConverterTests.cs" />
+    <Compile Include="Converters\TypeNameConverterTests.cs" />
     <Compile Include="Entities\SampleSettings.cs" />
     <Compile Include="Entities\SampleSource.cs" />
     <Compile Include="Readers\AppSettingsReaderTests.cs" />
