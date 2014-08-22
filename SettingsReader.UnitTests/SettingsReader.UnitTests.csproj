@@ -73,15 +73,20 @@
   <ItemGroup>
     <Compile Include="Converters\CamelCaseTypeNameConverterTests.cs" />
     <Compile Include="Converters\TypeNameConverterTests.cs" />
-    <Compile Include="Entities\SampleSettings.cs" />
+    <Compile Include="Entities\SampleSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Entities\SampleSource.cs" />
     <Compile Include="Readers\AppSettingsReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readers\BaseSettingsReaderTests.cs" />
     <Compile Include="Readers\ConfigurationSectionReaderTests.cs" />
     <Compile Include="Readers\SampleSettingsReader.cs" />
-    <Compile Include="Serialization\Converters\BoolJsonConverterTests.cs" />
+    <Compile Include="Serialization\Converters\BoolJsonConverterTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Serialization\DeserializerTests.cs" />
+    <Compile Include="Serialization\JsonSerializerTests.cs" />
     <Compile Include="Sources\AppSettingsSourceTests.cs" />
     <Compile Include="Sources\ConfigurationSectionSourceTests.cs" />
     <Compile Include="TestHelper.cs" />

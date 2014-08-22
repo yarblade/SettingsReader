@@ -10,11 +10,11 @@ namespace SettingsReader.Serialization.Converters
 	{
 		public override bool CanRead { get { return true; } }
 
-		public override bool CanWrite { get { return false; } }
+		public override bool CanWrite { get { return true; } }
 
-		public override void WriteJson(JsonWriter writer, object value, Newtonsoft.Json.JsonSerializer serializer)
+		public override bool CanConvert(Type objectType)
 		{
-			throw new NotImplementedException();
+			return objectType == typeof(bool);
 		}
 
 		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, Newtonsoft.Json.JsonSerializer serializer)
@@ -23,9 +23,10 @@ namespace SettingsReader.Serialization.Converters
 			return true.Equals(reader.Value) || (reader.Value != null && (bool.TryParse(reader.Value.ToString(), out result) && result));
 		}
 
-		public override bool CanConvert(Type objectType)
+		public override void WriteJson(JsonWriter writer, object value, Newtonsoft.Json.JsonSerializer serializer)
 		{
-			return objectType == typeof(bool);
+			bool result;
+			writer.WriteValue(value != null && bool.TryParse(value.ToString(), out result) && result);
 		}
 	}
 }
