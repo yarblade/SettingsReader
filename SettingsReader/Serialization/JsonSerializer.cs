@@ -1,7 +1,13 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
+using SettingsReader.Serialization.Exceptions;
 
 
 
@@ -22,11 +28,7 @@ namespace SettingsReader.Serialization
 
 			using (var writer = new StringWriter(sb))
 			{
-				var serializer = Newtonsoft.Json.JsonSerializer.CreateDefault(
-					new JsonSerializerSettings
-					{
-						Converters = _converters
-					});
+				var serializer = Newtonsoft.Json.JsonSerializer.CreateDefault(new JsonSerializerSettings { Converters = _converters });
 
 				serializer.Serialize(writer, obj);
 			}
@@ -40,12 +42,24 @@ namespace SettingsReader.Serialization
 			using (var jsonReader = new JsonTextReader(reader))
 			{
 				var serializer = Newtonsoft.Json.JsonSerializer.CreateDefault(
-					new JsonSerializerSettings
-					{
-						Converters = _converters
-					});
+					new JsonSerializerSettings { Converters = _converters, MissingMemberHandling = MissingMemberHandling.Error });
 
-				return serializer.Deserialize<T>(jsonReader);
+				var errors = new List<ErrorContext>();
+				serializer.Error += (sender, args) =>
+				{
+					errors.Add(args.ErrorContext);
+
+					args.ErrorContext.Handled = true;
+				};
+
+				var result = serializer.Deserialize<T>(jsonReader);
+
+				if (errors.Any())
+				{
+					throw new Exceptions.JsonSerializationException(errors.ToArray());
+				}
+
+				return result;
 			}
 		}
 
