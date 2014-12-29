@@ -33,7 +33,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\..\yarblade.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\yarblade.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -78,7 +78,7 @@
     <Compile Include="Sources\ConfigurationSectionSource.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\yarblade.snk">
+    <None Include="..\yarblade.snk">
       <Link>yarblade.snk</Link>
     </None>
     <None Include="packages.config" />
