@@ -72,7 +72,7 @@ and your settings
   </certificates>
 </complexSettings>
 ```
-Now you can get your settings by `ConfigurationSectionReader`
+Now you can get settings by `ConfigurationSectionReader`
 ```C#
 var settings = new ConfigurationSectionReader().Read<ComplexSettings>();
 ```
