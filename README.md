@@ -55,7 +55,7 @@ You need add new configuration section to your app.config (or web.config)
   <section name="complexSettings" type="SettingsReader.Configuration.ConfigurationSection, SettingsReader"/>
 </configSections>
 ```
-and your settings in xml
+and your settings
 ```xml
 <complexSettings>
   <itemsPerRequest>100</itemsPerRequest>
