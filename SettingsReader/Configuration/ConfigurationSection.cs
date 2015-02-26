@@ -7,11 +7,15 @@ namespace SettingsReader.Configuration
 {
 	public class ConfigurationSection : System.Configuration.ConfigurationSection
 	{
-		public XElement Element { get; set; }
+		public XElement Element { get; private set; }
 
 		protected override void DeserializeSection(XmlReader reader)
 		{
-			Element = XElement.Load(reader);
+			var doc = new XmlDocument();
+
+			doc.Load(reader);
+
+			Element = XElement.Parse(doc.OuterXml);
 		}
 	}
 }
