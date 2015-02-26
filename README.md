@@ -32,7 +32,7 @@ Then you call Read method with new `prefix` (by default `prefix` matches your se
 ```C#
 var settings = new AppSettingsReader().Read<SimpleSettings>("simple");
 ```
-If you want to use complex settings with lists, arrays and deep classes, you need use `ConfigurationSectionReader`.
+If you want to use complex settings with lists, arrays and other classes, you need use `ConfigurationSectionReader`.
 For example, you have:
 ```C#
 class Certificate
