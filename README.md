@@ -17,7 +17,7 @@ Then you need to add this xml to app.config (or web.config):
   <add key="SimpleSettings.RequestInterval" value="00:01:00"/>
 </appSettings>
 ```
-And now you can get your settings with `AppSettingsReader`!
+And now you can get your settings with `AppSettingsReader`
 ```C#
 var settings = new AppSettingsReader().Read<SimpleSettings>();
 ```
