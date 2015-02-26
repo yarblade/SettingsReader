@@ -10,7 +10,7 @@ class SimpleSettings
   public TimeSpan RequestInterval { get; set; }
 }
 ```
-Then you need to add this code to app.config (or web.config):
+Then you need to add this xml to app.config (or web.config):
 ```xml
 <appSettings>
   <add key="SimpleSettings.ItemsPerRequest" value="100"/>
@@ -21,7 +21,7 @@ And now you can get your settings with `AppSettingsReader`!
 ```C#
 var settings = new AppSettingsReader().Read<SimpleSettings>();
 ```
-Also you can change `prefix` of keys in <appSettings>. For example:
+Also you can change `prefix` of keys in `<appSettings>`. For example:
 ```xml
 <appSettings>
   <add key="simple.ItemsPerRequest" value="100"/>
