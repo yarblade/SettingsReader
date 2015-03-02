@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SettingsReader</id>
+    <version>1.0.1.0</version>
+    <title>SettingsReader</title>
+    <authors>yarblade</authors>
+    <owners>yarblade</owners>
+    <licenseUrl>https://github.com/yarblade/SettingsReader/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/yarblade/SettingsReader</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Read settings from application configuration file.</description>
+    <releaseNotes>Pre-release</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Settings Reading App.config </tags>
+  </metadata>
+</package>
